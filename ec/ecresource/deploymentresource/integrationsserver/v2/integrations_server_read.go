@@ -31,6 +31,7 @@ type IntegrationsServer struct {
 	Region                             *string                   `tfsdk:"region"`
 	HttpEndpoint                       *string                   `tfsdk:"http_endpoint"`
 	HttpsEndpoint                      *string                   `tfsdk:"https_endpoint"`
+	AliasedEndpoint                    *string                   `tfsdk:"aliased_endpoint"`
 	Endpoints                          *Endpoints                `tfsdk:"endpoints"`
 	InstanceConfigurationId            *string                   `tfsdk:"instance_configuration_id"`
 	LatestInstanceConfigurationId      *string                   `tfsdk:"latest_instance_configuration_id"`
@@ -94,7 +95,7 @@ func readIntegrationsServer(in *models.IntegrationsServerResourceInfo) (*Integra
 
 	srv.ElasticsearchClusterRefId = in.ElasticsearchClusterRefID
 
-	srv.HttpEndpoint, srv.HttpsEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
+	srv.HttpEndpoint, srv.HttpsEndpoint, srv.AliasedEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
 	srv.Endpoints = readEndpoints(in)
 
 	cfg, err := readIntegrationsServerConfigs(plan.IntegrationsServer)

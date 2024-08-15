@@ -32,6 +32,7 @@ type Elasticsearch struct {
 	CloudID          *string                                  `tfsdk:"cloud_id"`
 	HttpEndpoint     *string                                  `tfsdk:"http_endpoint"`
 	HttpsEndpoint    *string                                  `tfsdk:"https_endpoint"`
+	AliasedEndpoint  *string                                  `tfsdk:"aliased_endpoint"`
 	HotTier          *ElasticsearchTopology                   `tfsdk:"hot"`
 	CoordinatingTier *ElasticsearchTopology                   `tfsdk:"coordinating"`
 	MasterTier       *ElasticsearchTopology                   `tfsdk:"master"`
@@ -101,7 +102,7 @@ func readElasticsearch(in *models.ElasticsearchResourceInfo, remotes *models.Rem
 		es.CloudID = &meta.CloudID
 	}
 
-	es.HttpEndpoint, es.HttpsEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
+	es.HttpEndpoint, es.HttpsEndpoint, es.AliasedEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
 
 	es.Config, err = readElasticsearchConfig(plan.Elasticsearch)
 	if err != nil {

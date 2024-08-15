@@ -37,6 +37,7 @@ type ElasticsearchTF struct {
 	CloudID          types.String `tfsdk:"cloud_id"`
 	HttpEndpoint     types.String `tfsdk:"http_endpoint"`
 	HttpsEndpoint    types.String `tfsdk:"https_endpoint"`
+	AliasedEndpoint  types.String `tfsdk:"aliased_endpoint"`
 	HotContentTier   types.Object `tfsdk:"hot"`
 	CoordinatingTier types.Object `tfsdk:"coordinating"`
 	MasterTier       types.Object `tfsdk:"master"`

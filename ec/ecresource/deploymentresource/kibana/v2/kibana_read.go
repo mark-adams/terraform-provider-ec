@@ -31,6 +31,7 @@ type Kibana struct {
 	Region                             *string       `tfsdk:"region"`
 	HttpEndpoint                       *string       `tfsdk:"http_endpoint"`
 	HttpsEndpoint                      *string       `tfsdk:"https_endpoint"`
+	AliasedEndpoint                    *string       `tfsdk:"aliased_endpoint"`
 	InstanceConfigurationId            *string       `tfsdk:"instance_configuration_id"`
 	LatestInstanceConfigurationId      *string       `tfsdk:"latest_instance_configuration_id"`
 	InstanceConfigurationVersion       *int          `tfsdk:"instance_configuration_version"`
@@ -85,7 +86,7 @@ func readKibana(in *models.KibanaResourceInfo) (*Kibana, error) {
 
 	kibana.ElasticsearchClusterRefId = in.ElasticsearchClusterRefID
 
-	kibana.HttpEndpoint, kibana.HttpsEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
+	kibana.HttpEndpoint, kibana.HttpsEndpoint, kibana.AliasedEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
 
 	config, err := readKibanaConfig(plan.Kibana)
 	if err != nil {

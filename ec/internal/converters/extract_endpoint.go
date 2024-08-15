@@ -25,8 +25,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 )
 
-func ExtractEndpointsToTypes(metadata *models.ClusterMetadataInfo) (httpEndpoint, httpsEndpoint types.String) {
-	httpEndpointStr, httpsEndpointStr := ExtractEndpoints(metadata)
+func ExtractEndpointsToTypes(metadata *models.ClusterMetadataInfo) (httpEndpoint, httpsEndpoint, aliasedEndpoint types.String) {
+	httpEndpointStr, httpsEndpointStr, aliasedEndpointStr := ExtractEndpoints(metadata)
 
 	if httpEndpointStr != nil {
 		httpEndpoint = types.StringValue(*httpEndpointStr)
@@ -36,10 +36,14 @@ func ExtractEndpointsToTypes(metadata *models.ClusterMetadataInfo) (httpEndpoint
 		httpsEndpoint = types.StringValue(*httpsEndpointStr)
 	}
 
+	if aliasedEndpointStr != nil {
+		aliasedEndpoint = types.StringValue(*aliasedEndpointStr)
+	}
+
 	return
 }
 
-func ExtractEndpoints(metadata *models.ClusterMetadataInfo) (httpEndpoint, httpsEndpoint *string) {
+func ExtractEndpoints(metadata *models.ClusterMetadataInfo) (httpEndpoint, httpsEndpoint, aliasedEndpoint *string) {
 	if metadata == nil || metadata.Endpoint == "" || metadata.Ports == nil {
 		return
 	}
@@ -50,6 +54,11 @@ func ExtractEndpoints(metadata *models.ClusterMetadataInfo) (httpEndpoint, https
 
 	if metadata.Ports.HTTPS != nil {
 		httpsEndpoint = ec.String(fmt.Sprintf("https://%s:%d", metadata.Endpoint, *metadata.Ports.HTTPS))
+	}
+
+	if metadata.AliasedURL != "" {
+		fmt.Printf("DID IT!\n")
+		aliasedEndpoint = ec.String(metadata.AliasedURL)
 	}
 
 	return

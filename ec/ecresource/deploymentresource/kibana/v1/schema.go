@@ -47,6 +47,9 @@ func KibanaSchema() schema.Attribute {
 				"https_endpoint": schema.StringAttribute{
 					Computed: true,
 				},
+				"aliased_endpoint": schema.StringAttribute{
+					Computed: true,
+				},
 				"topology": schema.ListNestedAttribute{
 					Description: `Optional topology element`,
 					Optional:    true,

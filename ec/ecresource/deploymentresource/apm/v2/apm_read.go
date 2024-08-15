@@ -31,6 +31,7 @@ type Apm struct {
 	Region                             *string    `tfsdk:"region"`
 	HttpEndpoint                       *string    `tfsdk:"http_endpoint"`
 	HttpsEndpoint                      *string    `tfsdk:"https_endpoint"`
+	AliasedEndpoint                    *string    `tfsdk:"aliased_endpoint"`
 	InstanceConfigurationId            *string    `tfsdk:"instance_configuration_id"`
 	LatestInstanceConfigurationId      *string    `tfsdk:"latest_instance_configuration_id"`
 	InstanceConfigurationVersion       *int       `tfsdk:"instance_configuration_version"`
@@ -81,7 +82,7 @@ func ReadApm(in *models.ApmResourceInfo) (*Apm, error) {
 
 	apm.ElasticsearchClusterRefId = in.ElasticsearchClusterRefID
 
-	apm.HttpEndpoint, apm.HttpsEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
+	apm.HttpEndpoint, apm.HttpsEndpoint, apm.AliasedEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
 
 	configs, err := readApmConfigs(plan.Apm)
 	if err != nil {

@@ -19,8 +19,9 @@ package v2
 
 import (
 	"fmt"
-	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"strings"
+
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 
 	"github.com/elastic/terraform-provider-ec/ec/internal/planmodifiers"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
@@ -107,7 +108,13 @@ func ElasticsearchSchema() schema.Attribute {
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
-
+			"aliased_endpoint": schema.StringAttribute{
+				Description: "The Elasticsearch resource aliased endpoint",
+				Computed:    true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
 			"hot": elasticsearchTopologySchema(topologySchemaOptions{
 				tierName:                      "hot",
 				required:                      true,

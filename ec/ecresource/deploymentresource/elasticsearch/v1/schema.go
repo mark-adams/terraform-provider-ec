@@ -77,6 +77,10 @@ func ElasticsearchSchema() schema.Attribute {
 					Description: "The Elasticsearch resource HTTPs endpoint",
 					Computed:    true,
 				},
+				"aliased_endpoint": schema.StringAttribute{
+					Description: "The Elasticsearch resource aliased endpoint",
+					Computed:    true,
+				},
 				"topology": ElasticsearchTopologySchema(),
 
 				"trust_account": ElasticsearchTrustAccountSchema(),

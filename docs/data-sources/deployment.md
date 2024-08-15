@@ -48,6 +48,7 @@ Read-Only:
 - `healthy` (Boolean) APM resource health status.
 - `http_endpoint` (String) HTTP endpoint for the APM resource.
 - `https_endpoint` (String) HTTPS endpoint for the APM resource.
+- `aliased_endpoint` (String) Aliased endpoint for the APM resource.
 - `ref_id` (String) A locally-unique friendly alias for this APM resource.
 - `resource_id` (String) The resource unique identifier.
 - `status` (String) APM resource status (for example, "started", "stopped", etc).
@@ -76,6 +77,7 @@ Read-Only:
 - `healthy` (Boolean) Elasticsearch resource health status.
 - `http_endpoint` (String) HTTP endpoint for the Elasticsearch resource.
 - `https_endpoint` (String) HTTPS endpoint for the Elasticsearch resource.
+- `aliased_endpoint` (String) Aliased endpoint for the Elasticsearch resource.
 - `ref_id` (String) A locally-unique friendly alias for this Elasticsearch cluster.
 - `resource_id` (String) The resource unique identifier.
 - `status` (String) Elasticsearch resource status (for example, "started", "stopped", etc).
@@ -121,6 +123,7 @@ Read-Only:
 - `healthy` (Boolean) Enterprise Search resource health status.
 - `http_endpoint` (String) HTTP endpoint for the Enterprise Search resource.
 - `https_endpoint` (String) HTTPS endpoint for the Enterprise Search resource.
+- `aliased_endpoint` (String) Aliased endpoint for the Enterprise Search resource.
 - `ref_id` (String) A locally-unique friendly alias for this Enterprise Search resource.
 - `resource_id` (String) The resource unique identifier.
 - `status` (String) Enterprise Search resource status (for example, "started", "stopped", etc).
@@ -151,6 +154,7 @@ Read-Only:
 - `healthy` (Boolean) Resource kind health status.
 - `http_endpoint` (String) HTTP endpoint for the resource kind.
 - `https_endpoint` (String) HTTPS endpoint for the resource kind.
+- `aliased_endpoint` (String) Aliased endpoint for the resource kind.
 - `ref_id` (String) A locally-unique friendly alias for this Integrations Server resource.
 - `resource_id` (String) The resource unique identifier.
 - `status` (String) Resource kind status (for example, "started", "stopped", etc).
@@ -178,6 +182,7 @@ Read-Only:
 - `healthy` (Boolean) Kibana resource health status.
 - `http_endpoint` (String) HTTP endpoint for the Kibana resource.
 - `https_endpoint` (String) HTTPS endpoint for the Kibana resource.
+- `aliased_endpoint` (String) Aliased endpoint for the Kibana resource.
 - `ref_id` (String) A locally-unique friendly alias for this Kibana resource.
 - `resource_id` (String) The resource unique identifier.
 - `status` (String) Kibana resource status (for example, "started", "stopped", etc).

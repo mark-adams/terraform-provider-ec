@@ -77,6 +77,12 @@ func IntegrationsServerSchema() schema.Attribute {
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
+			"aliased_endpoint": schema.StringAttribute{
+				Computed: true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
 			"endpoints": schema.ObjectAttribute{
 				Optional:    true,
 				Computed:    true,

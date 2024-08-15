@@ -111,6 +111,12 @@ func ApmSchema() schema.Attribute {
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
+			"aliased_endpoint": schema.StringAttribute{
+				Computed: true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
 			"instance_configuration_id": schema.StringAttribute{
 				Optional: true,
 				Computed: true,

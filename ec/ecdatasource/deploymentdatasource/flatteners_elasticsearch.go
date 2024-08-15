@@ -78,7 +78,7 @@ func flattenElasticsearchResources(ctx context.Context, in []*models.Elasticsear
 
 			if res.Info.Metadata != nil {
 				model.CloudID = types.StringValue(res.Info.Metadata.CloudID)
-				model.HttpEndpoint, model.HttpsEndpoint = converters.ExtractEndpointsToTypes(res.Info.Metadata)
+				model.HttpEndpoint, model.HttpsEndpoint, model.AliasedEndpoint = converters.ExtractEndpointsToTypes(res.Info.Metadata)
 			}
 		}
 

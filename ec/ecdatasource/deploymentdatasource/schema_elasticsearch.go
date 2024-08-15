@@ -53,6 +53,10 @@ func elasticsearchResourceInfoSchema() schema.Attribute {
 					Description: "HTTPS endpoint for the Elasticsearch resource.",
 					Computed:    true,
 				},
+				"aliased_endpoint": schema.StringAttribute{
+					Description: "Aliased endpoint for the Elasticsearch resource.",
+					Computed:    true,
+				},
 				"ref_id": schema.StringAttribute{
 					Description: "A locally-unique friendly alias for this Elasticsearch cluster.",
 					Computed:    true,
@@ -174,16 +178,17 @@ func elasticsearchAutoscalingElemType() attr.Type {
 }
 
 type elasticsearchResourceInfoModelV0 struct {
-	Autoscale     types.String `tfsdk:"autoscale"`
-	Healthy       types.Bool   `tfsdk:"healthy"`
-	CloudID       types.String `tfsdk:"cloud_id"`
-	HttpEndpoint  types.String `tfsdk:"http_endpoint"`
-	HttpsEndpoint types.String `tfsdk:"https_endpoint"`
-	RefID         types.String `tfsdk:"ref_id"`
-	ResourceID    types.String `tfsdk:"resource_id"`
-	Status        types.String `tfsdk:"status"`
-	Version       types.String `tfsdk:"version"`
-	Topology      types.List   `tfsdk:"topology"` //< elasticsearchTopologyModelV0
+	Autoscale       types.String `tfsdk:"autoscale"`
+	Healthy         types.Bool   `tfsdk:"healthy"`
+	CloudID         types.String `tfsdk:"cloud_id"`
+	HttpEndpoint    types.String `tfsdk:"http_endpoint"`
+	HttpsEndpoint   types.String `tfsdk:"https_endpoint"`
+	AliasedEndpoint types.String `tfsdk:"aliased_endpoint"`
+	RefID           types.String `tfsdk:"ref_id"`
+	ResourceID      types.String `tfsdk:"resource_id"`
+	Status          types.String `tfsdk:"status"`
+	Version         types.String `tfsdk:"version"`
+	Topology        types.List   `tfsdk:"topology"` //< elasticsearchTopologyModelV0
 }
 
 type elasticsearchTopologyModelV0 struct {

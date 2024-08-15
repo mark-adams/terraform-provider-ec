@@ -385,6 +385,7 @@ Read-Only:
 - `cloud_id` (String) The encoded Elasticsearch credentials to use in Beats or Logstash
 - `http_endpoint` (String) The Elasticsearch resource HTTP endpoint
 - `https_endpoint` (String) The Elasticsearch resource HTTPs endpoint
+- `aliased_endpoint` (String) The Elasticsearch resource's aliased endpoint
 - `region` (String) The Elasticsearch resource region
 - `resource_id` (String) The Elasticsearch resource unique identifier
 
@@ -817,6 +818,7 @@ Read-Only:
 
 - `http_endpoint` (String)
 - `https_endpoint` (String)
+- `aliased_endpoint` (String)
 - `latest_instance_configuration_id` (String)
 - `latest_instance_configuration_version` (Number)
 - `region` (String)
@@ -854,6 +856,7 @@ Read-Only:
 
 - `http_endpoint` (String)
 - `https_endpoint` (String)
+- `aliased_endpoint` (String)
 - `latest_instance_configuration_id` (String)
 - `latest_instance_configuration_version` (Number)
 - `node_type_appserver` (Boolean)
@@ -894,6 +897,7 @@ Read-Only:
 
 - `http_endpoint` (String)
 - `https_endpoint` (String)
+- `aliased_endpoint` (String)
 - `latest_instance_configuration_id` (String)
 - `latest_instance_configuration_version` (Number)
 - `region` (String)
@@ -942,6 +946,7 @@ Read-Only:
 
 - `http_endpoint` (String)
 - `https_endpoint` (String)
+- `aliased_endpoint` (String)
 - `latest_instance_configuration_id` (String)
 - `latest_instance_configuration_version` (Number)
 - `region` (String)

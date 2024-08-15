@@ -74,7 +74,7 @@ func flattenKibanaResources(ctx context.Context, in []*models.KibanaResourceInfo
 			}
 
 			if res.Info.Metadata != nil {
-				model.HttpEndpoint, model.HttpsEndpoint = converters.ExtractEndpointsToTypes(res.Info.Metadata)
+				model.HttpEndpoint, model.HttpsEndpoint, model.AliasedEndpoint = converters.ExtractEndpointsToTypes(res.Info.Metadata)
 			}
 		}
 

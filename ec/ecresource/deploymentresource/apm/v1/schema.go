@@ -111,6 +111,9 @@ func ApmSchema() schema.Attribute {
 				"https_endpoint": schema.StringAttribute{
 					Computed: true,
 				},
+				"aliased_endpoint": schema.StringAttribute{
+					Computed: true,
+				},
 				"topology": ApmTopologySchema(),
 				"config":   ApmConfigSchema(),
 			},

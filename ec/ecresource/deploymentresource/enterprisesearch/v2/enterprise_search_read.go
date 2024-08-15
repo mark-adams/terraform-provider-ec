@@ -31,6 +31,7 @@ type EnterpriseSearch struct {
 	Region                             *string                 `tfsdk:"region"`
 	HttpEndpoint                       *string                 `tfsdk:"http_endpoint"`
 	HttpsEndpoint                      *string                 `tfsdk:"https_endpoint"`
+	AliasedEndpoint                    *string                 `tfsdk:"aliased_endpoint"`
 	InstanceConfigurationId            *string                 `tfsdk:"instance_configuration_id"`
 	LatestInstanceConfigurationId      *string                 `tfsdk:"latest_instance_configuration_id"`
 	InstanceConfigurationVersion       *int                    `tfsdk:"instance_configuration_version"`
@@ -80,7 +81,7 @@ func ReadEnterpriseSearch(in *models.EnterpriseSearchResourceInfo) (*EnterpriseS
 
 	ess.ElasticsearchClusterRefId = in.ElasticsearchClusterRefID
 
-	ess.HttpEndpoint, ess.HttpsEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
+	ess.HttpEndpoint, ess.HttpsEndpoint, ess.AliasedEndpoint = converters.ExtractEndpoints(in.Info.Metadata)
 
 	cfg, err := readEnterpriseSearchConfig(plan.EnterpriseSearch)
 	if err != nil {

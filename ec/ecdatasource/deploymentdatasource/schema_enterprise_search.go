@@ -48,6 +48,10 @@ func enterpriseSearchResourceInfoSchema() schema.Attribute {
 					Description: "HTTPS endpoint for the Enterprise Search resource.",
 					Computed:    true,
 				},
+				"aliased_endpoint": schema.StringAttribute{
+					Description: "Aliased endpoint for the Enterprise Search resource.",
+					Computed:    true,
+				},
 				"ref_id": schema.StringAttribute{
 					Description: "A locally-unique friendly alias for this Enterprise Search resource.",
 					Computed:    true,
@@ -123,6 +127,7 @@ type enterpriseSearchResourceInfoModelV0 struct {
 	Healthy                   types.Bool   `tfsdk:"healthy"`
 	HttpEndpoint              types.String `tfsdk:"http_endpoint"`
 	HttpsEndpoint             types.String `tfsdk:"https_endpoint"`
+	AliasedEndpoint           types.String `tfsdk:"aliased_endpoint"`
 	RefID                     types.String `tfsdk:"ref_id"`
 	ResourceID                types.String `tfsdk:"resource_id"`
 	Status                    types.String `tfsdk:"status"`

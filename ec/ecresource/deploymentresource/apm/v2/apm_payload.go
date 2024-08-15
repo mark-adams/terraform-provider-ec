@@ -36,6 +36,7 @@ type ApmTF struct {
 	Region                             types.String `tfsdk:"region"`
 	HttpEndpoint                       types.String `tfsdk:"http_endpoint"`
 	HttpsEndpoint                      types.String `tfsdk:"https_endpoint"`
+	AliasedEndpoint                    types.String `tfsdk:"aliased_endpoint"`
 	InstanceConfigurationId            types.String `tfsdk:"instance_configuration_id"`
 	LatestInstanceConfigurationId      types.String `tfsdk:"latest_instance_configuration_id"`
 	InstanceConfigurationVersion       types.Int64  `tfsdk:"instance_configuration_version"`
